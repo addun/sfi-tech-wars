@@ -10,7 +10,7 @@ const API_KEY = '';
 export class YoutubeService {
   constructor(private http: HttpClient) {}
 
-  getYoutubeList(args: any) {
+  getYoutubeList(args: any = {}) {
     const params = new HttpParams({ fromObject: args })
       .append('part', 'snippet')
       .append('maxResults', `24`)

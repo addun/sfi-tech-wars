@@ -1,12 +1,10 @@
-<div *ngIf="videos$ | async as videos; else loading" class="row row-cols-1 row-cols-md-3">
-  <div *ngFor="let video of videos.items" class="col-4 mb-4">
+<div *ngIf="videos$ | async as videos" class="row">
+  <div *ngFor="let video of videos.items" class="col-12 col-md-6 col-lg-4 mb-4">
     <div class="card h-100">
       <img [src]="video.snippet.thumbnails.medium.url" [alt]="video.snippet.title" class="card-img-top" />
       <div class="card-body">
         <h5 class="card-title text-truncate" [title]="video.snippet.title">{{ video.snippet.title }}</h5>
-        <p class="card-text">
-          {{ video.snippet.description }}
-        </p>
+        <p class="card-text">{{ video.snippet.description }}</p>
       </div>
       <div class="align-items-baseline card-footer d-flex justify-content-between">
         <small class="text-muted">Published {{ video.snippet.publishedAt | date }}</small>
@@ -15,7 +13,3 @@
     </div>
   </div>
 </div>
-
-<ng-template #loading>
-  Loading...
-</ng-template>

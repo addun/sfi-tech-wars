@@ -6,6 +6,10 @@ const routes: Routes = [
     path: 'videos',
     loadChildren: () => import('./modules/video/video.module').then(f => f.VideoModule),
   },
+  {
+    path: '**',
+    redirectTo: 'videos',
+  },
 ];
 
 @NgModule({

@@ -7,13 +7,17 @@ import { YoutubeService } from 'src/app/api/youtube/youtube.service';
 @Injectable({
   providedIn: 'root',
 })
-export class VideoResolve implements Resolve<YoutubeVideos> {
+export class VideosResolve implements Resolve<YoutubeVideos> {
   constructor(private youtubeService: YoutubeService) {}
 
   resolve(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot,
   ): YoutubeVideos | Observable<YoutubeVideos> | Promise<YoutubeVideos> {
-    return this.youtubeService.getYoutubeList({ q: route.queryParamMap.get('q') });
+    const params: any = {};
+    if (route.queryParamMap.has('q')) {
+      params.q = route.queryParamMap.get('q');
+    }
+    return this.youtubeService.getYoutubeList(params);
   }
 }

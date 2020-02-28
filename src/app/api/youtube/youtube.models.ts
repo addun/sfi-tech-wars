@@ -8,7 +8,7 @@ export interface YoutubeVideos {
 }
 
 export interface YouTubeVideo {
-  kind: string;
+  kind: 'youtube#playlist' | 'youtube#video' | 'youtube#channel';
   etag: string;
   id: Id;
   snippet: Snippet;
