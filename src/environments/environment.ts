@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  ytKey: '',
+  ytKey: 'AIzaSyDlA6e6wzQ2IHGemi4nzexzQXB6kaeuhro',
 };
 
 /*

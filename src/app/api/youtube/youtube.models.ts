@@ -1,6 +1,7 @@
-export interface YoutubeVideos {
+export interface YoutubeVideosResponse {
   kind: string;
   etag: string;
+  prevPageToken?: string;
   nextPageToken: string;
   regionCode: string;
   pageInfo: PageInfo;
@@ -45,4 +46,8 @@ interface Id {
 interface PageInfo {
   totalResults: number;
   resultsPerPage: number;
+}
+
+export interface YoutubeVideosRequest {
+  [key: string]: any;
 }

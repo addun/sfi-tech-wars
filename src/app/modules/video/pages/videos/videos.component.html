@@ -1,5 +1,5 @@
-<div *ngIf="videos$ | async as videos" class="row">
-  <div *ngFor="let video of videos.items" class="col-12 col-md-6 col-lg-4 mb-4">
+<div *ngIf="videosResponse; else loading" class="row">
+  <div *ngFor="let video of videosResponse.items" class="col-12 col-md-6 col-lg-4 mb-4">
     <div class="card h-100">
       <img [src]="video.snippet.thumbnails.medium.url" [alt]="video.snippet.title" class="card-img-top" />
       <div class="card-body">
@@ -12,4 +12,19 @@
       </div>
     </div>
   </div>
+
+  <div *ngIf="videosResponse.nextPageToken" class="col-12 text-center my-5">
+    <button (click)="loadMore(videosResponse.nextPageToken)" class="btn btn-primary" [disabled]="loadingMore">
+      <span *ngIf="loadingMore" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+      Load more
+    </button>
+  </div>
 </div>
+
+<ng-template #loading>
+  <div class="text-center">
+    <div class="spinner-border mt-5 text-primary" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+</ng-template>
