@@ -49,5 +49,5 @@ interface PageInfo {
 }
 
 export interface YoutubeVideosRequest {
-  [key: string]: any;
+  pageToken?: string;
 }

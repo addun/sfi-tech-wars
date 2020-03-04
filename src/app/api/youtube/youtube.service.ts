@@ -9,8 +9,8 @@ import { environment } from 'src/environments/environment';
 export class YoutubeService {
   constructor(private http: HttpClient) {}
 
-  getYoutubeList(args: YoutubeVideosRequest = {}) {
-    const params = new HttpParams({ fromObject: args })
+  getYoutubeList(args: YoutubeVideosRequest) {
+    const params = new HttpParams({ fromObject: { ...args } })
       .append('part', 'snippet')
       .append('maxResults', `24`)
       .append('key', environment.ytKey);
