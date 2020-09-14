@@ -10,10 +10,7 @@ import { YoutubeVideosResponse } from 'src/app/api/youtube/youtube.models';
 export class VideosResolve implements Resolve<YoutubeVideosResponse> {
   constructor(private youtubeService: YoutubeService) {}
 
-  resolve(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot,
-  ): YoutubeVideosResponse | Observable<YoutubeVideosResponse> | Promise<YoutubeVideosResponse> {
-    return this.youtubeService.getYoutubeList(route.queryParams);
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<YoutubeVideosResponse> {
+    return this.youtubeService.getVideos(route.queryParams);
   }
 }

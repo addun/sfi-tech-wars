@@ -23,7 +23,7 @@ export class VideosComponent implements OnInit {
 
   loadMore(pageToken: string) {
     this.loadingMore = true;
-    this.youtubeService.getYoutubeList({ pageToken }).subscribe((response: YoutubeVideosResponse) => {
+    this.youtubeService.getVideos({ pageToken }).subscribe((response: YoutubeVideosResponse) => {
       response.items.unshift(...this.videosResponse.items);
       this.videosResponse = response;
       this.loadingMore = false;
