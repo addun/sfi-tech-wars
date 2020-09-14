@@ -22,6 +22,6 @@ export class TopBarComponent {
   constructor(private router: Router) {}
 
   openVideoList(): void {
-    this.router.navigate(['videos'], { queryParams: this.searchForm.value });
+    this.router.navigate(['/'], { queryParams: this.searchForm.value });
   }
 }
