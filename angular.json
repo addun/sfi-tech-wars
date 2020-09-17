@@ -96,6 +96,13 @@
               "src/styles.scss"
             ],
             "scripts": []
+          },
+          "configurations": {
+            "ci": {
+              "watch": false,
+              "progress": false,
+              "browsers": "ChromeHeadlessCI"
+            }
           }
         },
         "lint": {
@@ -120,7 +127,7 @@
           "configurations": {
             "production": {
               "devServerTarget": "sfi:serve:production"
-            }
+            },
           }
         }
       }
