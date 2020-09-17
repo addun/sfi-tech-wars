@@ -4,6 +4,12 @@ import { YoutubeVideosResponse, YoutubeVideosRequest } from './youtube.models';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { CommentThreadResponse } from './comment-thread.models';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+
+export interface VideoUrlConfig {
+  controls?: '0' | '1';
+  autoplay?: '0' | '1';
+}
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +17,7 @@ import { CommentThreadResponse } from './comment-thread.models';
 export class YoutubeService {
   private apiPrefix = `https://www.googleapis.com/youtube/v3`;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private domSanitizer: DomSanitizer) {}
 
   getVideos(args: YoutubeVideosRequest) {
     const params = new HttpParams({ fromObject: { ...args } })
@@ -20,6 +26,11 @@ export class YoutubeService {
       .append('key', environment.ytKey);
 
     return this.http.get<YoutubeVideosResponse>(`${this.apiPrefix}/search`, { params });
+  }
+
+  getVideoUrl(id: string, configs: VideoUrlConfig = {}): SafeResourceUrl {
+    const params = new HttpParams({ fromObject: { ...configs } });
+    return this.domSanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${id}?${params}`);
   }
 
   getCommentsForVideo(videoId: string): Observable<CommentThreadResponse> {

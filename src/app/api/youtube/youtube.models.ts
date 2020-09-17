@@ -9,7 +9,7 @@ export interface YoutubeVideosResponse {
 }
 
 export interface YouTubeVideo {
-  kind: 'youtube#playlist' | 'youtube#video' | 'youtube#channel';
+  kind: string;
   etag: string;
   id: Id;
   snippet: Snippet;
@@ -38,7 +38,7 @@ interface Default {
 }
 
 interface Id {
-  kind: string;
+  kind: 'youtube#playlist' | 'youtube#video' | 'youtube#channel';
   videoId?: string;
   channelId?: string;
 }

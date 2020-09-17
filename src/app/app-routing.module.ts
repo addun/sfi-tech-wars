@@ -3,12 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'videos',
     loadChildren: () => import('./modules/video/video.module').then(f => f.VideoModule),
   },
   {
     path: '**',
-    redirectTo: '/',
+    redirectTo: '/videos',
   },
 ];
 
