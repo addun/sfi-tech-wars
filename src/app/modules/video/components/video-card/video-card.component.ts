@@ -24,11 +24,11 @@ export class VideoCardComponent {
 
   constructor(private youtubeService: YoutubeService) {}
 
-  @HostListener('mouseenter') handleMouseEnter() {
+  handleMouseEnter() {
     this.preview = true;
   }
 
-  @HostListener('mouseleave') handleMouseLeave() {
+  handleMouseLeave() {
     this.preview = false;
   }
 }

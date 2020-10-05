@@ -2,6 +2,7 @@
   <div *ngFor="let item of videosResponse.items" [ngSwitch]="item.id.kind" class="col-12 col-md-6 col-lg-4 mb-4">
     <sfi-channel-card *ngSwitchCase="'youtube#channel'" [channel]="item">...</sfi-channel-card>
     <sfi-video-card *ngSwitchCase="'youtube#video'" [video]="item">...</sfi-video-card>
+    <sfi-playlist-card *ngSwitchCase="'youtube#playlist'" [playlist]="item">...</sfi-playlist-card>
     <div *ngSwitchDefault>Unsupported type of item</div>
   </div>
 

@@ -1,18 +1,14 @@
-<ng-template [ngIf]="preview" [ngIfThen]="videoTemplate" [ngIfElse]="imgTemplate"></ng-template>
-<ng-template #imgTemplate>
-  <img [src]="video.snippet.thumbnails.medium.url" [alt]="video.snippet.title" class="card-img-top" />
-</ng-template>
-<ng-template #videoTemplate>
-  <div class="embed-responsive embed-responsive-16by9">
-    <iframe
-      class="embed-responsive-item"
-      type="text/html"
-      [src]="safeUrl"
-      frameborder="0"
-      allow="autoplay"
-    ></iframe>
-  </div>
-</ng-template>
+<div (mouseenter)="handleMouseEnter()" (mouseleave)="handleMouseLeave()">
+  <ng-template [ngIf]="preview" [ngIfThen]="videoTemplate" [ngIfElse]="imgTemplate"></ng-template>
+  <ng-template #imgTemplate>
+    <img [src]="video.snippet.thumbnails.medium.url" [alt]="video.snippet.title" class="card-img-top" />
+  </ng-template>
+  <ng-template #videoTemplate>
+    <div class="embed-responsive embed-responsive-16by9">
+      <iframe class="embed-responsive-item" type="text/html" [src]="safeUrl" frameborder="0" allow="autoplay"></iframe>
+    </div>
+  </ng-template>
+</div>
 
 <div class="card-body">
   <h5 class="card-title text-truncate" [title]="video.snippet.title">{{ video.snippet.title }}</h5>
