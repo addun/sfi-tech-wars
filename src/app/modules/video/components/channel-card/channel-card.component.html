@@ -4,6 +4,6 @@
   <p class="card-text">{{ channel.snippet.description }}</p>
 </div>
 <div class="align-items-baseline card-footer d-flex justify-content-between">
-  <small class="text-muted">Published {{ channel.snippet.publishedAt | date }}</small>
+  <small class="text-muted">Created at {{ channel.snippet.publishedAt | date }}</small>
   <a [routerLink]="[channel.id.videoId]" class="btn btn-primary">Open</a>
 </div>
