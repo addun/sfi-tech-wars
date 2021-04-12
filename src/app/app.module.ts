@@ -8,6 +8,7 @@ import { SearchComponent } from './pages/search/search.component';
 import { VideoComponent } from './pages/video/video.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { VideoPreviewComponent } from './components/video-preview/video-preview.component';
 
 const routes: Routes = [
   {
@@ -30,7 +31,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, SearchComponent, VideoComponent, NavbarComponent],
+  declarations: [AppComponent, HomeComponent, SearchComponent, VideoComponent, NavbarComponent, VideoPreviewComponent],
   imports: [
     BrowserModule,
     HttpClientModule,

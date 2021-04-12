@@ -1,0 +1,14 @@
+<div class="card h-100">
+  <img [src]="video.snippet.thumbnails.medium.url" [alt]="video.snippet.title" class="card-img-top" />
+
+  <div class="card-body">
+    <h5 class="card-title text-truncate">{{ video.snippet.title }}</h5>
+    <p class="card-text">
+      {{ video.snippet.description }}
+    </p>
+  </div>
+  <div class="align-items-baseline card-footer d-flex justify-content-between">
+    <small class="text-muted">Published at {{ video.snippet.publishedAt | date }}</small>
+    <a [routerLink]="['/', 'videos', video.id.videoId]" class="btn btn-primary">Open</a>
+  </div>
+</div>

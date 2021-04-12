@@ -51,4 +51,5 @@ interface YouTubeVideosPageInfo {
 export interface YouTubeVideosRequest {
   q?: string;
   pageToken?: string;
+  channelId?: string;
 }

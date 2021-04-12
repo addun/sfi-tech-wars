@@ -24,4 +24,8 @@ export class YouTubeService {
     });
     return this.http.get<YouTubeVideosResponse>(`${this.apiPrefix}/search`, { params });
   }
+
+  getRecommendedVideos() {
+    return this.getVideos({ channelId: 'UCVbgirGadFyMh57r0HPrONA' });
+  }
 }

@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { map } from 'rxjs/operators';
+import { YouTubeService } from '../../api/you-tube/you-tube.service';
 
 @Component({
   selector: 'sfi-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
+  videos$ = this.youTubeService.getRecommendedVideos().pipe(map((response) => response.items));
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  constructor(private youTubeService: YouTubeService) {}
 }
