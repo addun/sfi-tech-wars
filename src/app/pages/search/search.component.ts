@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { map, switchMap } from 'rxjs/operators';
+import { YouTubeService } from '../../api/you-tube/you-tube.service';
 @Component({
   selector: 'sfi-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.scss']
+  styleUrls: ['./search.component.scss'],
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent {
+  searchParam$ = this.activatedRoute.queryParamMap.pipe(map((params) => params.get('q')));
 
-  constructor() { }
+  videos$ = this.searchParam$.pipe(
+    switchMap((searchValue) => this.youTubeService.getVideos({ q: searchValue })),
+    map((response) => response.items),
+  );
 
-  ngOnInit(): void {
-  }
-
+  constructor(private activatedRoute: ActivatedRoute, private youTubeService: YouTubeService) {}
 }
