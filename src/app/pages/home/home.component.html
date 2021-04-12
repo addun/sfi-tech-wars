@@ -1,0 +1,21 @@
+<h1 class="my-4 h4">Proponowane filmy</h1>
+
+<div class="row">
+  <div *ngFor="let _ of [0, 0, 0, 0, 0, 0, 0, 0, 0]" class="col-12 col-md-6 col-lg-4 mb-4">
+    <div class="card h-100">
+      <img src="https://via.placeholder.com/320x180" alt="placeholder" class="card-img-top" />
+
+      <div class="card-body">
+        <h5 class="card-title text-truncate">Lorem ipsum dolor</h5>
+        <p class="card-text">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, tempora dignissimos nemo eius accusamus
+          doloremque Voluptatem?
+        </p>
+      </div>
+      <div class="align-items-baseline card-footer d-flex justify-content-between">
+        <small class="text-muted">Published at 00.00.0000</small>
+        <a [routerLink]="['/', 'videos', 0]" class="btn btn-primary">Open</a>
+      </div>
+    </div>
+  </div>
+</div>
