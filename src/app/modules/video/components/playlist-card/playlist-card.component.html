@@ -1,8 +1,0 @@
-<img [src]="playlist.snippet.thumbnails.medium.url" [alt]="playlist.snippet.title" class="card-img-top img-thumbnail" />
-<div class="card-body">
-  <h5 class="card-title text-truncate" [title]="playlist.snippet.title">{{ playlist.snippet.title }}</h5>
-</div>
-<div class="align-items-baseline card-footer d-flex justify-content-between">
-  <small class="text-muted">Published {{ playlist.snippet.publishedAt | date }}</small>
-  <a [routerLink]="[playlist.id.videoId]" class="btn btn-primary">Open</a>
-</div>
