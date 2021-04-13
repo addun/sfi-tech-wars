@@ -1,14 +1,15 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { AppComponent } from './app.component';
+import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
+import { LoadingBarModule } from '@ngx-loading-bar/core';
+import { AppComponent } from './app.component';
+import { VideoPreviewComponent } from './components/video-preview/video-preview.component';
+import { NavbarComponent } from './layout/navbar/navbar.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SearchComponent } from './pages/search/search.component';
 import { VideoComponent } from './pages/video/video.component';
-import { NavbarComponent } from './layout/navbar/navbar.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { VideoPreviewComponent } from './components/video-preview/video-preview.component';
 
 const routes: Routes = [
   {
@@ -39,6 +40,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes, {
       scrollPositionRestoration: 'top',
     }),
+    LoadingBarModule,
   ],
   bootstrap: [AppComponent],
 })
