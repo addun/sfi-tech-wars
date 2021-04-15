@@ -16,7 +16,7 @@ export class SearchComponent {
     tap(() => this.loadingBarService.useRef().start()),
     switchMap((searchValue) => this.youTubeService.getVideos({ q: searchValue })),
     map((response) => response.items),
-    finalize(() => this.loadingBarService.useRef().complete()),
+    tap(() => this.loadingBarService.useRef().complete()),
   );
 
   constructor(
